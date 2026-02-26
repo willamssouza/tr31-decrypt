@@ -1,11 +1,16 @@
 {
     "name": "tr31-decrypt",
     "version": "1.0.0",
-    "description": "Aplicação Node.js para codificação e decriptografia de blocos TR-31",
+    "description": "Aplicação Node.js para criptografia e decriptografia de blocos TR-31",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js",
-        "test": "node test.js"
+        "start": "node example.js",
+        "test": "node --test tests/test-encode.test.js tests/test-errors.test.js tests/test-performance.test.js",
+        "test:encode": "node --test tests/test-encode.test.js",
+        "test:errors": "node --test tests/test-errors.test.js",
+        "test:performance": "node --test tests/test-performance.test.js",
+        "test:spec": "node --test --test-reporter=spec tests/test-encode.test.js tests/test-errors.test.js tests/test-performance.test.js",
+        "test:watch": "node --test --watch tests/test-encode.test.js tests/test-errors.test.js tests/test-performance.test.js"
     },
     "keywords": [
         "tr31",
@@ -23,6 +28,6 @@
     "author": "willamssouza",
     "license": "MIT",
     "engines": {
-        "node": ">=14.0.0"
+        "node": ">=18.0.0"
     }
 }

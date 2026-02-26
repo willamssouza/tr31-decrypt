@@ -297,8 +297,9 @@ npm test
 
 ## ⚠️ Requisitos
 
-- Node.js >= 14.0.0
+- **Node.js >= 18.0.0** (para suporte ao test runner nativo)
 - Nenhuma dependência externa
+- Os testes usam `node:test` e `node:assert` (módulos nativos)
 
 ## 📚 Referências
 
@@ -317,6 +318,76 @@ npm test
 ## 📝 Licença
 
 MIT
+
+## 🧪 Testes
+
+O projeto usa o **test runner nativo do Node.js** (`node:test`) - sem dependências externas!
+
+### Executar todos os testes
+
+```bash
+npm test
+```
+
+### Testes individuais
+
+```bash
+# Testes funcionais (codificação/decodificação)
+npm run test:encode
+
+# Testes de validação e tratamento de erros
+npm run test:errors
+
+# Testes de performance e benchmarks
+npm run test:performance
+
+# Todos os testes com reporter spec (mais legível)
+npm run test:spec
+
+# Modo watch (reexecuta testes ao salvar)
+npm run test:watch
+```
+
+### Descrição dos testes
+
+**test-encode.test.js** - Testes funcionais (usando `describe`/`it`)
+
+- ✅ Codificação e decodificação com AES-CBC, AES-ECB, TDES-CBC, TDES-ECB
+- ✅ Validação de consistência (encode → decode → verify)
+- ✅ Testes com diferentes tamanhos de chaves (8, 16, 24, 32 bytes)
+- ✅ Testes com diferentes tamanhos de MAC (4, 8, 16 bytes)
+- ✅ Verificação de padding ISO 9797-1 Method 2
+- ✅ Validação de estrutura do header TR-31
+
+**test-errors.test.js** - Testes de validação (usando `assert.throws`)
+
+- ✅ Validação de KEK (tamanhos válidos e inválidos)
+- ✅ Validação de parâmetros de encode (MAC length, algoritmos)
+- ✅ Validação de parâmetros de decode (key blocks inválidos)
+- ✅ Testes de padding (adicionar/remover)
+- ✅ Testes de consistência para todas as combinações de algoritmo/modo
+- ✅ Testes de diferentes configurações (key usage, exportability, etc.)
+
+**test-performance.test.js** - Benchmarks (com métricas detalhadas)
+
+- ✅ Performance de codificação por algoritmo (1000 iterações)
+- ✅ Performance de decodificação por algoritmo (1000 iterações)
+- ✅ Performance de ciclo completo (encode + decode, 500 iterações)
+- ✅ Performance com diferentes tamanhos de chave (8, 16, 32, 64 bytes)
+- ✅ Performance com diferentes tamanhos de MAC (4, 8, 16 bytes)
+- ✅ Análise de uso de memória (RSS, Heap, External)
+- ✅ Métricas: ops/s, tempo médio por operação
+
+### Recursos do Node.js Test Runner
+
+O `node:test` oferece:
+
+- 🔥 **Nenhuma dependência** - Tudo nativo do Node.js
+- 📊 **Reporters integrados** - TAP, spec, dot
+- 🔄 **Watch mode** - Reexecuta testes automaticamente
+- ⚡ **Execução paralela** - Testes mais rápidos
+- 🎯 **Assert nativo** - `node:assert/strict`
+- 🔍 **Describe/It** - Sintaxe familiar de BDD
 
 ## 👨‍💻 Desenvolvimento
 

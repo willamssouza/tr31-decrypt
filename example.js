@@ -24,13 +24,16 @@ try {
 
   // Decodificar o bloco
   const result = decoder.decode(KEY_BLOCK);
+  const unpaddedKey = decoder.removePadding(
+    Buffer.from(result.decryptedData, "hex"),
+  );
 
   // Exibir resultado final
   console.log("\n===========================================");
   console.log("    RESULTADO FINAL");
   console.log("===========================================");
   console.log("\nChave Decriptada (HEX):");
-  console.log(result.decryptedData);
+  console.log(unpaddedKey.toString("hex").toUpperCase());
   console.log("\n===========================================\n");
 } catch (error) {
   console.error("\n❌ ERRO:", error.message);

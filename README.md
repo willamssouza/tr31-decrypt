@@ -1,4 +1,4 @@
-# TR-31 Encoder/Decoder
+# TR-31 Encrypt/Decrypt - Node.js
 
 Aplicação Node.js para codificação e decriptografia de blocos de chave TR-31 (ANSI X9 TR-31).
 

@@ -1,4 +1,4 @@
-const TR31Decoder = require("./tr31-decoder");
+const TR31Decoder = require("./tr31-decrypt");
 
 /**
  * Aplicação principal para decriptografia de blocos TR-31

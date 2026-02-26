@@ -1,7 +1,7 @@
 {
-    "name": "tr31-decoder",
+    "name": "tr31-decrypt",
     "version": "1.0.0",
-    "description": "Aplicação Node.js para decriptografia de blocos TR-31",
+    "description": "Aplicação Node.js para codificação e decriptografia de blocos TR-31",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
@@ -10,11 +10,17 @@
     "keywords": [
         "tr31",
         "decoder",
+        "encoder",
         "decryption",
+        "encryption",
         "key-block",
         "cryptography"
     ],
-    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/willamssouza/tr31-decrypt.git"
+    },
+    "author": "willamssouza",
     "license": "MIT",
     "engines": {
         "node": ">=14.0.0"

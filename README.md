@@ -9,8 +9,9 @@ O TR-31 é um padrão para formato de bloco de chave usado em sistemas de pagame
 ## 🚀 Instalação
 
 ```bash
-# Clonar ou navegar até o diretório
-cd tr31-decoder
+# Clonar o repositório
+git clone https://github.com/willamssouza/tr31-decrypt.git
+cd tr31-decrypt
 
 # Não há dependências externas - usa apenas módulos nativos do Node.js
 npm install
@@ -108,20 +109,6 @@ Execute o teste completo de codificação e decodificação:
 
 ```bash
 node test-encode.js
-```
-
-## 📦 Estrutura do Projeto
-
-```
-tr31-decoder/
-├── index.js              # Aplicação principal (exemplo de decodificação)
-├── tr31-decoder.js       # Classe principal com encode() e decode()
-├── test.js               # Script de teste de decodificação
-├── test-encode.js        # Script de teste de codificação
-├── package.json          # Configuração do projeto
-├── README.md             # Este arquivo
-├── RESULTADO.md          # Resultados de testes
-└── kek and block.md      # Dados de exemplo
 ```
 
 ## 🔐 Formato TR-31

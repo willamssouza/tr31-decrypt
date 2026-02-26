@@ -1,4 +1,4 @@
-const TR31Decoder = require("./tr31-decoder");
+const TR31Decoder = require("./tr31-decrypt");
 
 console.log("=".repeat(60));
 console.log("TESTE DE CODIFICAÇÃO TR-31");

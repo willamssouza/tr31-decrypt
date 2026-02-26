@@ -1,0 +1,22 @@
+{
+    "name": "tr31-decoder",
+    "version": "1.0.0",
+    "description": "Aplicação Node.js para decriptografia de blocos TR-31",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "node test.js"
+    },
+    "keywords": [
+        "tr31",
+        "decoder",
+        "decryption",
+        "key-block",
+        "cryptography"
+    ],
+    "author": "",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.0.0"
+    }
+}

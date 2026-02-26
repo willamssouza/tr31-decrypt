@@ -19,7 +19,7 @@ npm install
 
 ## 💻 Uso
 
-### Decodificação (Descriptografia)
+### Descriptografia
 
 #### Uso Básico
 
@@ -65,12 +65,12 @@ try {
 }
 ```
 
-### Codificação (Criptografia)
+### Criptografia
 
 #### Uso Programático
 
 ```javascript
-const TR31Decoder = require("./tr31-decoder");
+const TR31Decoder = require("./tr31-decrypt");
 
 // Sua KEK (Key Encryption Key) em hexadecimal
 const KEK = "88E1AB2A2E3DD38C1FA039A536500CC8A87AB9D62DC92C01058FA79F44657DE9";

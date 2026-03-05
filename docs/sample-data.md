@@ -6,7 +6,8 @@ PINData: A0B0C0D0E0F000102030405060708090 - KCV: 9b2b04 - ARN: arn:aws:payment-c
 ## KeyBlock
 
 CardDataKeyBlock: D0112D0AD00E0000830ae7d966581bc6109b7bceeac1e42a84ce549d68775976f40dafc1bc6e079f12b8b89920a3f4d5de954a1c55bad900 - ARN: arn:aws:payment-cryptography:us-east-1:839834288637:key/2z4vw3xz4xsfsjsf
-PINKeyBlock: D0112P0AD00E00002e9e2c5368e77cd09754e482234b876004cacb8486f842502edbabc8ae7679c23cb8489da59ae50269e8132fd98a75a4 - ARN: arn:aws:payment-cryptography:us-east-1:839834288637:key/uvad4hmkmtf24rtk
+
+PINKeyBlock: D0112P0AD00E00002e9e2c5368e77cd09754e482234b876004cacb8486f842502edbabc8ae7679c23cb8489da59ae50269e8132fd98a75a4 - ARN: arn:aws:payment-cryptography:us-east-1:839834288637:key/xf22cier2atsm5n7
 
 ## IV
 

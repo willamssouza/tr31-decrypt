@@ -548,4 +548,31 @@ class TR31Decoder {
   }
 }
 
+function main() {
+  const kek = "000102030405060708090A0B0C0D0E0F";
+  const decoder = new TR31Decoder(kek);
+  const keyToProtect = "0123456789ABCDEFFEDCBA9876543210";
+  const tr31Block = decoder.encode(keyToProtect, {
+    versionId: "D",
+    keyUsage: "D0",
+    algorithm: "A",
+    modeOfUse: "E",
+    keyVersion: "01",
+    exportability: "E",
+    macLength: 8,
+  });
+
+  console.log("\n=== BLOCO TR-31 GERADO ===");
+  console.log(tr31Block);
+
+  console.log("\n=== DECODIFICANDO O BLOCO TR-31 GERADO ===");
+  const decoded = decoder.decode(tr31Block);
+  console.log("\n=== RESULTADO DA DECODIFICAÇÃO ===");
+  console.log(JSON.stringify(decoded, null, 2));
+}
+
+if (require.main === module) {
+  main();
+}
+
 module.exports = TR31Decoder;

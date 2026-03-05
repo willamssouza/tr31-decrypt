@@ -1,0 +1,11 @@
+{
+    "cardholderDataKey": {
+        "keyBlock": "D0112D0AD00E000037e35a44a7a52b4c0e49ad9e39d0136625ef8bbcd8861ae97c1ab8e5862e8b791f982ed0a61af0293968644a3b0b6fa4",
+        "keyBlockFormat": "TR-31",
+        "kekId": "493C3AB4110BDA5BDD1B5DDB3DBC6E8778EA8821DC64AB9A53B049725D205DC3",
+        "cardDataHash": "kahEPIxXkuR+hQsc3LdWw6RYnnO86S1d4r95JvGRjnE="
+    },
+    "serverDateTime": "20240606133118",
+    "transactionId": "8ea6c70c-ffbf-4ed1-aabe-0eec9d60bee8",
+    "readerIdentifier": "a18d87d45de5a97e3f5bbe3beec1ebf6d8b2ee367484be1aa2effb2e34b2455d"
+}

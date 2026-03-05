@@ -10,7 +10,14 @@
         "test:errors": "node --test tests/test-errors.test.js",
         "test:performance": "node --test tests/test-performance.test.js",
         "test:spec": "node --test --test-reporter=spec tests/test-encode.test.js tests/test-errors.test.js tests/test-performance.test.js",
-        "test:watch": "node --test --watch tests/test-encode.test.js tests/test-errors.test.js tests/test-performance.test.js"
+        "test:watch": "node --test --watch tests/test-encode.test.js tests/test-errors.test.js tests/test-performance.test.js",
+        "aws:import": "node aws-import-kek.js",
+        "aws:import-simple": "node aws-import-simple.js",
+        "aws:example": "node aws-import-example.js"
+    },
+    "dependencies": {
+        "@aws-sdk/client-payment-cryptography": "^3.1000.0",
+        "@aws-sdk/client-payment-cryptography-data": "^3.1000.0"
     },
     "keywords": [
         "tr31",

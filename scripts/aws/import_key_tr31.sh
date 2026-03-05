@@ -1,7 +1,7 @@
 #!/bin/bash
 
-KEK_ARN="arn:aws:payment-cryptography:us-east-1:839834288637:key/ubnefqhww5ughxv6"
-TR31_KEY_BLOCK="D0112D0AD00E00009ef4ff063d9757987d1768a1e317a6530de7d8ac81972c19a3659afb28e8d35f48aaa5b0f124e73893163e9a020ae5f3"
+KEK_ARN="arn:aws:payment-cryptography:us-east-1:839834288637:key/xtq4auqn5z34fwh2"
+TR31_KEY_BLOCK="D0112P0AD00E00002e9e2c5368e77cd09754e482234b876004cacb8486f842502edbabc8ae7679c23cb8489da59ae50269e8132fd98a75a4"
 
 aws payment-cryptography import-key \
     --key-material '{

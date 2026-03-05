@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./wrapKeyWithRSAAES.sh
 
-KEK_HEX="000102030405060708090A0B0C0D0E0F"
+KEK_HEX="A0B0C0D0E0F000102030405060708090"
 JSON_PARAMS="import-params.json"
 
 # Remover arquivos temporários ao sair

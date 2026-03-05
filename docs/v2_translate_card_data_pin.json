@@ -1,0 +1,18 @@
+{
+    "cardholderDataKey": {
+        "keyBlock": "D0112D0AD00E0000830ae7d966581bc6109b7bceeac1e42a84ce549d68775976f40dafc1bc6e079f12b8b89920a3f4d5de954a1c55bad900",
+        "keyBlockFormat": "TR-31",
+        "kekId": "493C3AB4110BDA5BDD1B5DDB3DBC6E8778EA8821DC64AB9A53B049725D205DC3",
+        "cardDataHash": "dKojGozckcXWHeFrzPOibUOo/55ALX4MP/axVi9NQek="
+    },
+    "pinKey": {
+        "keyBlock": "D0112P0AD00E00002e9e2c5368e77cd09754e482234b876004cacb8486f842502edbabc8ae7679c23cb8489da59ae50269e8132fd98a75a4",
+        "keyBlockFormat": "TR-31",
+        "kekId": "72AC19908C39C4158A403D5F7D02D742D5BF3703DFA9E2BD73B03638D428D4D6",
+        "pinDataHash": "/UUwAX/rlw8vh9BKoawdWoteIopKXg9+cLQrsAaQtNk="
+    },
+    "isPinBypass": false,
+    "serverDateTime": "20240604152358",
+    "transactionId": "a75942e3-ba48-4360-9742-21d76479adf4",
+    "readerIdentifier": "a18d87d45de5a97e3f5bbe3beec1ebf6d8b2ee367484be1aa2effb2e34b2455d"
+}

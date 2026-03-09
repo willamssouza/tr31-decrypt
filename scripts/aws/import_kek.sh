@@ -1,7 +1,8 @@
 #!/bin/bash
 source ./wrapKeyWithRSAAES.sh
 
-KEK_HEX="A0B0C0D0E0F000102030405060708090"
+KEK_CARD_DATA_HEX="000102030405060708090A0B0C0D0E0F"
+KEK_PIN_HEX="A0B0C0D0E0F000102030405060708090"
 JSON_PARAMS="import-params.json"
 
 # Remover arquivos temporários ao sair
@@ -17,7 +18,7 @@ aws payment-cryptography get-parameters-for-import \
 CERT_DATA=$(grep -o '"WrappingKeyCertificate"[[:space:]]*:[[:space:]]*"[^"]*"' "$JSON_PARAMS" | sed 's/.*"WrappingKeyCertificate"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
 CERTIFICATE=$(echo "$CERT_DATA" | base64 --decode)
 
-WRAPPED_KEY_CRYPTOGRAM=$(wrapKeyWithRSAAES "$KEK_HEX" "$CERTIFICATE")
+WRAPPED_KEY_CRYPTOGRAM=$(wrapKeyWithRSAAES "$KEK_CARD_DATA_HEX" "$CERTIFICATE")
 
 # Validar se a chave wrapped é válida
 if [[ -z "$WRAPPED_KEY_CRYPTOGRAM" ]]; then

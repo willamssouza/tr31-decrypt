@@ -1,8 +1,8 @@
 #!/bin/bash
 
-KEY_ARN="arn:aws:payment-cryptography:us-east-1:839834288637:key/2z4vw3xz4xsfsjsf"
-CIPHERED_DATA="fjPMAKB4z+knxnGd7eah5ZBV8N5DB7nSTOfshBjaa8KezkIMWiJeJqHf5J2hiu90qCHn64b/cYhRpcGiSAMw9uITeanWJMBNdYgerlD3r/KsCN02lh1MnKVcSH/MLL2xqrw36Dai4wqLyfikCuY2x2S/nGGGt7A2Dg4h+3TCmtoV5kKmGhM5ns7gDBihmU2nnvZ0JGGoIhMaZpibfvfRCigq+XJe1AWcklSBRJfQLLTKxTzTpQ9B7lHX3RRIBnj1"
-IV="XEWxSVlKQBYfkTpo9tukQQ=="
+KEY_ARN="arn:aws:payment-cryptography:us-east-1:839834288637:key/7aigu2dctluf2k3o"
+CIPHERED_DATA="RxnK6NDu8RHT8/j/g9i2LNaYTCNvUemwEJ09C1AkxtCj0Ke+CKqL5qPfEC2t/ONEIUWm7Kw6Nf3vuVjrdOx74ZsHhtXTIF9SweTYdxuc3Jg3k5YYGeTkNK/OXv6AjhOlVVuSyfxs4/8LdXln4O0HmEoeydJcofYSk0WDVLFIjpxnw7i6ZSTY6SZLHglwMrxnJYsdq9y5ni4RCqTW767Yfk7SIjlzSvWdy6qVv6pZQ4za4UMlH8c6Mgc7B/9gybQDNuTHztIypXEf6N+1QsiqBHh2uKqDrKVQxEGg0kx8vyT6w4i+v+jTsvCcrWXdd655"
+IV="tNTKK6IDYOlGEzUb7lVK/g=="
 
 IV_HEX=$(echo "$IV" | base64 -d | xxd -p -c 256)
 CIPHERED_DATA_HEX=$(echo "$CIPHERED_DATA" | base64 -d | xxd -p -c 256)

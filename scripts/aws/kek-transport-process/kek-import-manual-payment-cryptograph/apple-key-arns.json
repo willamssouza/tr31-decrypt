@@ -1,0 +1,5 @@
+{
+  "RootCaKeyArn":           "arn:aws:payment-cryptography:us-east-1:839834288637:key/f5ughhajdf2hjalx",
+  "IntermediateCaKeyArn":   "arn:aws:payment-cryptography:us-east-1:839834288637:key/yffjlio5ufqftmyz",
+  "AppleTransportKeyArn":   "arn:aws:payment-cryptography:us-east-1:839834288637:key/2epbtkfdug2p7cct"
+}

@@ -1,0 +1,10 @@
+{
+  "CommonName":      "www.userede.com.br",
+  "Organization":    "Itau Unibanco S.A.",
+  "Country":         "BR",
+  "PrivateKeyFile":  "signing-private-key.pem",
+  "PublicKeyFile":   "signing-public-key.pem",
+  "CsrFile":         "signing-csr.pem",
+  "KeyAlgorithm":    "RSA_2048",
+  "PublicKeySHA256": "82a4e9d4960acdc0a068012ce9461308abda92b86e361ed571f795f20d88ceaa"
+}

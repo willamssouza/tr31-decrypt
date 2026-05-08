@@ -23,6 +23,8 @@ npm-debug.log*
 Thumbs.db
 
 # Keys (segurança)
+*.sig
+*.cert
 *.key
 *.pem
 keys/

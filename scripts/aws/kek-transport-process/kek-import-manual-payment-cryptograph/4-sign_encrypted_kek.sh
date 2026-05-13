@@ -25,10 +25,7 @@ set -euo pipefail
 
 KEK_JSON="${1:-kek-info.json}"
 SIGNING_JSON="${2:-signing-key-info.json}"
-
-# Key block headers (hex-encoded ASCII)
-HEADER_CARDHOLDER="3130303030545041454159"   # "10000TPAEAY" – cardholder data KEK
-HEADER_PIN="3130303030545041454959"          # "10000TPAEIY" – PIN KEK
+SIG_HEADER="${3:-${SIG_HEADER}}"
 
 SIG_CARDHOLDER="keyblock_signature_cardholder.sig"
 OUTPUT_JSON="keyblock_signature.json"
@@ -84,15 +81,14 @@ KEY_BITS=$(openssl rsa -in "$PRIVATE_KEY" -text -noout 2>/dev/null \
 ok "Signing key        : $PRIVATE_KEY  (${KEY_BITS} bit)"
 
 # ── Helper: sign a binary payload and return hex signature ────────────────
-# Usage: sign_payload <header_hex> <sig_file> <tmp_bin_file> <label>
+# Usage: sign_payload <header_hex> <sig_file> <tmp_bin_file>
 sign_payload() {
     local header_hex="$1"
     local sig_file="$2"
     local tmp_bin="$3"
-    local label="$4"
 
     echo ""
-    echo "Processing KEK for ${label}..."
+    echo "Processing KEK..."
 
     local combined="${header_hex}${WRAPPED_KEK}"
 
@@ -114,7 +110,7 @@ sign_payload() {
     local sig_hex
     sig_hex=$(xxd -p "$sig_file" | tr -d '\n' | tr 'a-f' 'A-F')
     echo ""
-    echo "  Signature of KeyBlock (HEX) – ${label}:"
+    echo "  Signature of KeyBlock (HEX):"
     echo "  $sig_hex"
 
     # Return values via global variables (bash 3 compatible)
@@ -124,7 +120,7 @@ sign_payload() {
 }
 
 # ── Step 1: Cardholder data KEK ────────────────────────────────────────────
-sign_payload "$HEADER_CARDHOLDER" "$SIG_CARDHOLDER" "$TMP_BIN_CARDHOLDER" "cardholder data"
+sign_payload "$SIG_HEADER" "$SIG_CARDHOLDER" "$TMP_BIN_CARDHOLDER"
 COMBINED_CARDHOLDER="$LAST_COMBINED_HEX"
 SIG_HEX_CARDHOLDER="$LAST_SIG_HEX"
 SIG_B64_CARDHOLDER="$LAST_SIG_B64"
@@ -140,8 +136,8 @@ cat > "$OUTPUT_JSON" << EOF
   "PrivateKeyFile":     "$PRIVATE_KEY",
   "WrappedKek":         "$WRAPPED_KEK",
 
-  "CardholderData": {
-    "Header":           "$HEADER_CARDHOLDER",
+  "SignedKekData": {
+    "Header":           "$SIG_HEADER",
     "CombinedHex":      "$COMBINED_CARDHOLDER",
     "SignatureFile":    "$SIG_CARDHOLDER",
     "SignatureHex":     "$SIG_HEX_CARDHOLDER",
@@ -157,6 +153,12 @@ echo "======================================================"
 echo " Part 4 complete"
 echo "======================================================"
 echo ""
-echo "  Cardholder KEK signature : $SIG_CARDHOLDER"
-echo "  Metadata                 : $OUTPUT_JSON"
+echo "  KEK signature : $SIG_CARDHOLDER"
+echo "  Metadata      : $OUTPUT_JSON"
+echo ""
+echo "======================================================"
+echo " NEXT STEPS"
+echo "======================================================"
+echo "  1. Run 5-show-apple-payload.sh to view the payload to send to Apple."
+echo "======================================================"
 echo ""

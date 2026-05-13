@@ -23,8 +23,8 @@ set -euo pipefail
 #   apple-key-arns.json  – ARNs of imported keys for subsequent steps
 # ──────────────────────────────────────────────────────────────────────────────
 
-CERT_FILE="${1:-transport-key-certificate-PAN-NON_PROD.pem}"
-REGION="${2:-us-east-1}"
+CERT_FILE="${1:-${CERT_FILE}}"
+REGION="${2:-${REGION}}"
 OUTPUT_JSON="apple-key-arns.json"
 
 LEAF_PEM="apple-cert-leaf.pem"

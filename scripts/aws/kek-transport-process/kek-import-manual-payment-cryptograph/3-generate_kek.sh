@@ -23,9 +23,9 @@ set -euo pipefail
 #   kek-export-leaf.pem   – Temp leaf cert (removed on exit)
 # ──────────────────────────────────────────────────────────────────────────────
 
-APPLE_CERT_FILE="${1:-transport-key-certificate-PAN-NON_PROD.pem}"
+APPLE_CERT_FILE="${1:-${CERT_FILE}}"
 ARNS_JSON="${2:-apple-key-arns.json}"
-REGION="${3:-us-east-1}"
+REGION="${3:-${REGION}}"
 
 OUTPUT_JSON="kek-info.json"
 LEAF_PEM="kek-export-leaf.pem"
@@ -87,37 +87,37 @@ LEAF_CERT_B64=$(openssl base64 -A -in "$LEAF_PEM")
 echo ""
 echo "[2/3] Creating AES-128 KEK in AWS Payment Cryptography..."
 
-# cat > create-key.json << EOF
-# {
-#   "KeyAttributes": {
-#     "KeyAlgorithm": "AES_128",
-#     "KeyClass":     "SYMMETRIC_KEY",
-#     "KeyUsage":     "TR31_K0_KEY_ENCRYPTION_KEY",
-#     "KeyModesOfUse": {
-#       "Encrypt": true,
-#       "Decrypt": true,
-#       "Wrap":    true,
-#       "Unwrap":  true
-#     }
-#   },
-#   "Exportable": true,
-#   "Enabled":    true
-# }
-# EOF
+cat > create-key.json << EOF
+{
+  "KeyAttributes": {
+    "KeyAlgorithm": "AES_128",
+    "KeyClass":     "SYMMETRIC_KEY",
+    "KeyUsage":     "TR31_K0_KEY_ENCRYPTION_KEY",
+    "KeyModesOfUse": {
+      "Encrypt": true,
+      "Decrypt": true,
+      "Wrap":    true,
+      "Unwrap":  true
+    }
+  },
+  "Exportable": true,
+  "Enabled":    true
+}
+EOF
 
-# CREATE_RESULT=$(aws payment-cryptography create-key \
-#     --cli-input-json file://create-key.json \
-#     --region "$REGION" \
-#     --output json)
+CREATE_RESULT=$(aws payment-cryptography create-key \
+    --cli-input-json file://create-key.json \
+    --region "$REGION" \
+    --output json)
 
-# KEK_ARN=$(echo "$CREATE_RESULT" | grep -o '"KeyArn"[[:space:]]*:[[:space:]]*"[^"]*"' \
-#     | sed 's/.*"KeyArn"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+KEK_ARN=$(echo "$CREATE_RESULT" | grep -o '"KeyArn"[[:space:]]*:[[:space:]]*"[^"]*"' \
+    | sed 's/.*"KeyArn"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
 
-# [ -n "$KEK_ARN" ] || fail "Failed to create KEK. Check AWS credentials and region."
-# ok "KEK ARN              : $KEK_ARN"
-
-KEK_ARN="arn:aws:payment-cryptography:us-east-1:839834288637:key/nyrti5cdrzcnapql"
+[ -n "$KEK_ARN" ] || fail "Failed to create KEK. Check AWS credentials and region."
 ok "KEK ARN              : $KEK_ARN"
+
+# KEK_ARN="arn:aws:payment-cryptography:us-east-1:839834288637:key/5rb5yr67h3fvxgun"
+# ok "KEK ARN              : $KEK_ARN"
 
 # ── Step 3: Export KEK wrapped with Apple Transport Key ───────────────────
 echo ""

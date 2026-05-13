@@ -33,3 +33,4 @@ secrets/
 # Output
 dist/
 build/
+scripts/aws/kek-transport-process/kek-import-manual-payment-cryptograph/session-config.env
